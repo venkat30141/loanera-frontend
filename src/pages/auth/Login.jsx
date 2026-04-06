@@ -17,10 +17,13 @@ const Login = () => {
   setError("");
 
   try {
-    const res = await axios.post("http://localhost:8082/api/login", {
-      email,
-      password,
-    });
+   const res = await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/login`,
+  {
+    email,
+    password,
+  }
+);
 
     login(res.data);
 

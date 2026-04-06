@@ -20,7 +20,10 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:8082/api/register", form);
+    await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/register`,
+  form
+);
 
     navigate("/login");
   };
