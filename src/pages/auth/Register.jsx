@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:8082/api/register", form);
+    await axios.post("https://loanera-backend-production.up.railway.app/api/register", form);
 
     navigate("/login");
   };
