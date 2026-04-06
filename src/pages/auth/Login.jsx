@@ -17,7 +17,7 @@ const Login = () => {
   setError("");
 
   try {
-    const res = await axios.post("http://localhost:8082/api/login", {
+    const res = await axios.post("https://loanera-backend-production.up.railway.app/api/login", {
       email,
       password,
     });
