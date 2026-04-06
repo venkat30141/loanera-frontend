@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8082/api/analyst";
+const BASE_URL = "https://loanera-backend-production.up.railway.app/api/analyst";
 
 const getAuthHeaders = () => ({
   headers: {
