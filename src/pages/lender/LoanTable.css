@@ -1,0 +1,54 @@
+.page {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.page h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.loan-table thead {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: white;
+}
+
+.loan-table th,
+.loan-table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.loan-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.loan-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.loan-table td button {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.loan-table td button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}

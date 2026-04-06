@@ -1,0 +1,169 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+.apply-loan-container {
+  min-height: 100vh;
+  padding: 90px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      rgba(8, 25, 55, 0.82),
+      rgba(8, 25, 55, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1601597111158-2fceff292cdc");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===============================
+   PAGE TITLE
+================================ */
+.apply-loan-container h2 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 35px;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   FORM INPUTS
+================================ */
+.apply-loan-container input {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px 18px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+}
+
+.apply-loan-container input:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.4);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.loan-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.loan-buttons button {
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4da3ff, #1e88e5);
+  transition: all 0.35s ease;
+}
+
+.loan-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(77, 163, 255, 0.5);
+}
+
+.loan-buttons button:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   EMI PREVIEW CARD
+================================ */
+.emi-preview {
+  margin-top: 35px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  animation: fadeUp 0.7s ease;
+}
+
+.emi-preview h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #9fd3ff;
+}
+
+.emi-preview p {
+  font-size: 1rem;
+  margin: 6px 0;
+  color: #eaf4ff;
+}
+
+.emi-preview strong {
+  color: #cde7ff;
+}
+
+/* ===============================
+   LOADER
+================================ */
+.loader {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #9fd3ff;
+  animation: pulse 1.4s infinite;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 480px) {
+  .loan-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .loan-buttons button {
+    width: 100%;
+  }
+}

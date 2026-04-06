@@ -1,0 +1,275 @@
+/* ===============================
+   GLOBAL RESET & FONTS
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===============================
+   BACKGROUND (BANKING THEME)
+================================ */
+.profile-container {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(10, 30, 60, 0.7),
+      rgba(10, 30, 60, 0.7)
+    ),
+    url("https://images.unsplash.com/photo-1601597111158-2fceff292cdc");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+/* ===============================
+   PAGE TITLE
+================================ */
+.profile-container h2 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ===============================
+   CARD (GLASS EFFECT)
+================================ */
+.profile-card {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  animation: fadeUp 0.8s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+.profile-section {
+  margin-bottom: 30px;
+}
+
+.profile-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #9fd3ff;
+  border-left: 4px solid #4da3ff;
+  padding-left: 10px;
+}
+
+.profile-section p {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #f1f5f9;
+}
+
+.profile-section strong {
+  color: #cde7ff;
+}
+
+/* ===============================
+   FORM
+================================ */
+.profile-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #9fd3ff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.4);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+form button {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4da3ff, #1e88e5);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(77, 163, 255, 0.5);
+}
+
+form button:active {
+  transform: scale(0.98);
+}
+
+/* ===============================
+   LOADER
+================================ */
+.loader {
+  font-size: 1.3rem;
+  color: #9fd3ff;
+  animation: pulse 1.5s infinite;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .profile-container h2 {
+    font-size: 2rem;
+  }
+
+  .profile-card {
+    padding: 25px;
+  }
+}
+/* ===============================
+   FINANCIAL VISUALS
+================================ */
+.finance-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* ===============================
+   CREDIT SCORE RING
+================================ */
+.credit-ring-container {
+  display: flex;
+  justify-content: center;
+}
+
+.credit-ring {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateIn 1s ease;
+}
+
+.credit-ring-inner {
+  width: 130px;
+  height: 130px;
+  background: rgba(10, 30, 60, 0.95);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.credit-ring-inner .score {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #9fd3ff;
+}
+
+.credit-ring-inner .label {
+  font-size: 0.85rem;
+  color: #cde7ff;
+}
+
+/* ===============================
+   INCOME BAR
+================================ */
+.income-bar-container {
+  width: 100%;
+}
+
+.income-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #cde7ff;
+  font-weight: 500;
+}
+
+.income-bar {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.income-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4da3ff, #1e88e5);
+  border-radius: 20px;
+  animation: fillBar 1.5s ease forwards;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: scale(0.8) rotate(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}

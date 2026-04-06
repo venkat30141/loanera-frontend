@@ -1,0 +1,184 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+.assigned-loans-page {
+  min-height: 100vh;
+  padding: 80px 40px;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      rgba(8, 25, 55, 0.82),
+      rgba(8, 25, 55, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1724781189475-a332f44de593?q=80&w=1170&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.assigned-loans-page h2 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 35px;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   TABLE (GLASS EFFECT)
+================================ */
+.loan-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+}
+
+.loan-table thead th {
+  padding: 16px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9fd3ff;
+}
+
+.loan-table tbody tr {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  transition: all 0.35s ease;
+}
+
+.loan-table tbody tr:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 70px rgba(77, 163, 255, 0.4);
+}
+
+.loan-table td {
+  padding: 18px;
+  text-align: center;
+  color: #eaf4ff;
+}
+
+/* Rounded row edges */
+.loan-table tbody tr td:first-child {
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.loan-table tbody tr td:last-child {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* ===============================
+   STATUS BADGES
+================================ */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge.approved {
+  background: rgba(255, 193, 7, 0.25);
+  color: #ffc107;
+}
+
+.badge.active {
+  background: rgba(0, 230, 118, 0.25);
+  color: #00e676;
+}
+
+.badge.closed {
+  background: rgba(33, 150, 243, 0.25);
+  color: #4da3ff;
+}
+
+/* ===============================
+   FUND BUTTON
+================================ */
+.fund-btn {
+  padding: 9px 18px;
+  border-radius: 14px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #00e676, #00c853);
+  transition: all 0.3s ease;
+}
+
+.fund-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 230, 118, 0.45);
+}
+
+/* ===============================
+   LOADER
+================================ */
+.loader {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #9fd3ff;
+  animation: pulse 1.4s infinite;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+.assigned-loans-page p {
+  font-size: 1.1rem;
+  color: #cfe6ff;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* ===============================
+   RESPONSIVE (MOBILE)
+================================ */
+@media (max-width: 900px) {
+  .loan-table thead {
+    display: none;
+  }
+
+  .loan-table tbody tr {
+    display: block;
+    padding: 20px;
+  }
+
+  .loan-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .loan-table td::before {
+    content: attr(data-label);
+    color: #9fd3ff;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,294 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --text-main: #ffffff;
+  --text-soft: #cfe6ff;
+  --accent-blue: #4da3ff;
+  --accent-green: #2ee59d;
+  --accent-red: #ff6b6b;
+  --accent-gold: #ffc107;
+}
+
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+.manage-loans {
+  min-height: 100vh;
+  padding: 40px;
+  background:
+    linear-gradient(rgba(8, 25, 55, 0.9), rgba(8, 25, 55, 0.95)),
+    url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-main);
+  animation: fadeIn 0.8s ease;
+}
+
+/* ===============================
+   PAGE TITLE
+================================ */
+.manage-loans h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ===============================
+   LOADER
+================================ */
+.loader {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-soft);
+  padding: 60px;
+  animation: pulse 1.4s infinite;
+}
+
+/* ===============================
+   TABS
+================================ */
+.tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.tabs button {
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(14px);
+}
+
+.tabs button:hover {
+  color: #fff;
+  box-shadow: 0 0 25px rgba(77, 163, 255, 0.35);
+}
+
+.tabs .active {
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue),
+    var(--accent-green)
+  );
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(46, 229, 157, 0.45);
+}
+
+/* ===============================
+   TABLE
+================================ */
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  animation: slideUp 0.6s ease;
+}
+
+.loan-table thead {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.loan-table th,
+.loan-table td {
+  padding: 16px 18px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.loan-table th {
+  color: var(--text-soft);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.loan-table tbody tr {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.loan-table tbody tr:hover {
+  background: rgba(77, 163, 255, 0.15);
+  transform: scale(1.01);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Approve */
+.approve-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-green),
+    #1dd1a1
+  );
+  color: #fff;
+}
+
+.approve-btn:hover {
+  box-shadow: 0 10px 25px rgba(46, 229, 157, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Assign Lender */
+.assign-lender-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue),
+    #3b82f6
+  );
+  color: #fff;
+}
+
+.assign-lender-btn:hover {
+  box-shadow: 0 10px 25px rgba(77, 163, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   ASSIGN BOX
+================================ */
+.assign-box {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.assign-box input {
+  width: 90px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+}
+
+.assign-box input::placeholder {
+  color: #dbeafe;
+}
+
+.assign-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-green),
+    #22c55e
+  );
+  color: #fff;
+}
+
+.cancel-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-red),
+    #ef4444
+  );
+  color: #fff;
+}
+
+.assign-btn:hover,
+.cancel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+.manage-loans p {
+  margin-top: 20px;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .manage-loans {
+    padding: 25px 15px;
+  }
+
+  .loan-table {
+    font-size: 13px;
+  }
+
+  .loan-table th,
+  .loan-table td {
+    padding: 12px;
+  }
+}

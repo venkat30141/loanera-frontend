@@ -1,0 +1,213 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --text-main: #ffffff;
+  --text-soft: #cfe6ff;
+  --accent-blue: #4da3ff;
+  --accent-green: #2ee59d;
+  --danger: #ff6b6b;
+}
+
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   AUTH BACKGROUND
+================================ */
+.auth-container {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(8, 25, 55, 0.85), rgba(8, 25, 55, 0.9)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ===============================
+   AUTH CARD (GLASS)
+================================ */
+.auth-card {
+  width: 440px;
+  padding: 40px 35px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  color: var(--text-main);
+  animation: slideUp 0.9s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+/* ===============================
+   HEADINGS
+================================ */
+.auth-card h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 25px;
+}
+
+/* ===============================
+   INPUTS & SELECT
+================================ */
+.auth-card input,
+.role-select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.35s ease;
+  appearance: none;
+}
+
+/* Placeholder */
+.auth-card input::placeholder {
+  color: #cbdcff;
+}
+
+/* Focus */
+.auth-card input:focus,
+.role-select:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===============================
+   SELECT DROPDOWN OPTIONS
+================================ */
+.role-select option {
+  background: #0b1c3a;
+  color: #fff;
+}
+
+/* ===============================
+   REGISTER BUTTON
+================================ */
+.auth-card button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.auth-card button:hover::after {
+  left: 100%;
+}
+
+.auth-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(46, 229, 157, 0.4);
+}
+
+.auth-card button:active {
+  transform: scale(0.97);
+}
+
+/* ===============================
+   SWITCH LINK
+================================ */
+.switch {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.switch a {
+  color: var(--accent-blue);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.switch a:hover {
+  color: var(--accent-green);
+  text-decoration: underline;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 480px) {
+  .auth-card {
+    width: 90%;
+    padding: 30px 25px;
+  }
+}

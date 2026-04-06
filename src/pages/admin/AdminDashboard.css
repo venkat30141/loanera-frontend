@@ -1,0 +1,189 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  --bg-dark: #081937;
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --text-main: #ffffff;
+  --text-soft: #cfe6ff;
+  --accent-blue: #4da3ff;
+  --accent-green: #2ee59d;
+  --accent-gold: #ffc107;
+}
+
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   DASHBOARD BACKGROUND
+================================ */
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 40px 60px;
+  background:
+    linear-gradient(rgba(8, 25, 55, 0.85), rgba(8, 25, 55, 0.9)),
+    url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-main);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.admin-dashboard h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.admin-dashboard p {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 35px;
+}
+
+/* ===============================
+   CARD GRID
+================================ */
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ===============================
+   ADMIN CARD
+================================ */
+.admin-card {
+  padding: 30px 28px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow border effect */
+.admin-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(77, 163, 255, 0.35),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ===============================
+   CARD CONTENT
+================================ */
+.admin-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.admin-card p {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* ===============================
+   HOVER EFFECTS
+================================ */
+.admin-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 35px 90px rgba(77, 163, 255, 0.35);
+}
+
+.admin-card:hover::before {
+  opacity: 1;
+}
+
+/* Accent bar */
+.admin-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue),
+    var(--accent-green)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.admin-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===============================
+   CARD VARIANTS (AUTO COLORS)
+================================ */
+.admin-card:nth-child(1):hover {
+  box-shadow: 0 35px 90px rgba(46, 229, 157, 0.4);
+}
+
+.admin-card:nth-child(2):hover {
+  box-shadow: 0 35px 90px rgba(77, 163, 255, 0.4);
+}
+
+.admin-card:nth-child(3):hover {
+  box-shadow: 0 35px 90px rgba(255, 193, 7, 0.45);
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 30px 20px;
+  }
+
+  .admin-dashboard h2 {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,17 @@
+.assign-lender {
+  padding: 30px;
+}
+
+.assign-lender select {
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.assign-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}

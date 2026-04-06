@@ -1,0 +1,34 @@
+/* RESET DEFAULT BROWSER STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FULL PAGE HEIGHT */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* DEFAULT FONT */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* REMOVE INPUT OUTLINES (optional) */
+input,
+select,
+button {
+  outline: none;
+  font-family: inherit;
+}
+
+/* BUTTON CURSOR */
+button {
+  cursor: pointer;
+}

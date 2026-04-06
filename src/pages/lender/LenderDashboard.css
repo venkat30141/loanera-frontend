@@ -1,0 +1,160 @@
+/* ===============================
+   FONT
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+.lender-dashboard {
+  min-height: 100vh;
+  padding: 60px 80px;
+  background:
+    linear-gradient(
+      rgba(7, 23, 55, 0.88),
+      rgba(7, 23, 55, 0.92)
+    ),
+    url("https://images.unsplash.com/photo-1605902711622-cfb43c44367f?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.lender-dashboard h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.lender-dashboard > p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #dbeafe;
+}
+
+/* ===============================
+   LOADER
+================================ */
+.loader {
+  text-align: center;
+  font-size: 18px;
+  padding: 80px;
+  color: #c7d2fe;
+  animation: pulse 1.4s infinite;
+}
+
+/* ===============================
+   STATS STRIP (NO CARDS)
+================================ */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+/* ===============================
+   STAT BLOCK
+================================ */
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 30px 32px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* subtle bottom accent */
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 4px;
+  background: #22d3ee;
+  border-radius: 0 0 18px 18px;
+  transition: width 0.3s ease;
+}
+
+/* ===============================
+   TEXT
+================================ */
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   HOVER (VERY SUBTLE)
+================================ */
+.card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+.card:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   COLOR VARIANTS
+================================ */
+.card:nth-child(1)::after {
+  background: #60a5fa;
+}
+
+.card:nth-child(2)::after {
+  background: #facc15;
+}
+
+.card:nth-child(3)::after {
+  background: #22c55e;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .lender-dashboard {
+    padding: 40px;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card p {
+    font-size: 24px;
+  }
+}
