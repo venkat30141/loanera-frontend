@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../../api/axios"; // ✅ correct path
 import "./Register.css";
 
 const Register = () => {
@@ -11,27 +11,54 @@ const Register = () => {
     role: "BORROWER",
   });
 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // HANDLE INPUT CHANGE
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  // HANDLE SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("https://loanera-backend-production.up.railway.app/api/register", form);
+    try {
+      setLoading(true);
 
-    navigate("/login");
+      const response = await api.post("/api/register", form);
+
+      console.log("Registered:", response.data);
+
+      alert("Registration Successful ✅");
+
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+
+      if (error.response) {
+        alert(error.response.data.message || "Registration failed ❌");
+      } else {
+        alert("Server not reachable ❌");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h2>Create Account</h2>
-        <p className="subtitle">Register to Loan Management System</p>
+        <p className="subtitle">
+          Register to Loan Management System
+        </p>
 
         <form onSubmit={handleSubmit}>
+          {/* NAME */}
           <input
             name="name"
             placeholder="Full Name"
@@ -40,6 +67,7 @@ const Register = () => {
             required
           />
 
+          {/* EMAIL */}
           <input
             name="email"
             type="email"
@@ -49,6 +77,7 @@ const Register = () => {
             required
           />
 
+          {/* PASSWORD */}
           <input
             name="password"
             type="password"
@@ -58,7 +87,7 @@ const Register = () => {
             required
           />
 
-          {/* ROLE SELECTION */}
+          {/* ROLE */}
           <select
             name="role"
             value={form.role}
@@ -71,11 +100,15 @@ const Register = () => {
             <option value="ANALYST">Analyst</option>
           </select>
 
-          <button type="submit">Register</button>
+          {/* BUTTON */}
+          <button type="submit" disabled={loading}>
+            {loading ? "Registering..." : "Register"}
+          </button>
         </form>
 
         <p className="switch">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

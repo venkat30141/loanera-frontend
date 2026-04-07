@@ -1,43 +1,60 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../auth/AuthContext";
-import axios from "axios";
+import api from "../../api/axios"; // ✅ use central axios
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError("");
+    e.preventDefault();
+    setError("");
 
-  try {
-    const res = await axios.post("https://loanera-backend-production.up.railway.app/api/login", {
-      email,
-      password,
-    });
+    try {
+      setLoading(true);
 
-    login(res.data);
+      const res = await api.post("/api/login", {
+        email,
+        password,
+      });
 
-    if (res.data.role === "ADMIN") {
-      navigate("/admin");
-    } else if (res.data.role === "BORROWER") {
-      navigate("/borrower");
-    } else if (res.data.role === "LENDER") {
-      navigate("/lender");
-    } else if (res.data.role === "ANALYST") {
-      navigate("/analyst/dashboard");   // ✅ THIS WAS MISSING
+      console.log("Login Success:", res.data);
+
+      // store user in context
+      login(res.data);
+
+      // role-based navigation
+      switch (res.data.role) {
+        case "ADMIN":
+          navigate("/admin");
+          break;
+        case "BORROWER":
+          navigate("/borrower");
+          break;
+        case "LENDER":
+          navigate("/lender");
+          break;
+        case "ANALYST":
+          navigate("/analyst/dashboard");
+          break;
+        default:
+          navigate("/");
+      }
+
+    } catch (err) {
+      console.error(err);
+      setError("Invalid email or password ❌");
+    } finally {
+      setLoading(false);
     }
-  } catch {
-    setError("Invalid email or password");
-  }
-};
-
+  };
 
   return (
     <div className="auth-container">
@@ -48,6 +65,7 @@ const Login = () => {
         {error && <p className="error">{error}</p>}
 
         <form onSubmit={handleSubmit}>
+          {/* EMAIL */}
           <input
             type="email"
             placeholder="Email address"
@@ -56,6 +74,7 @@ const Login = () => {
             required
           />
 
+          {/* PASSWORD */}
           <input
             type="password"
             placeholder="Password"
@@ -64,7 +83,10 @@ const Login = () => {
             required
           />
 
-          <button type="submit">Login</button>
+          {/* BUTTON */}
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
         </form>
 
         <p className="switch">
